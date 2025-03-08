@@ -1,9 +1,11 @@
 import { Canvas } from "@react-three/fiber";
-import Background from "../3dcomponents/Background";
+import { lazy } from "react";
 
 interface classes {
   className?: string
 }
+
+const Background = lazy(()=>import("../3dcomponents/Background"))
 
 export default function Experience({ className }: classes): JSX.Element {
   return (<Canvas

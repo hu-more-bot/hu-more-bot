@@ -1,5 +1,6 @@
-import React from "react";
-import Experience from "../components/Experience";
+import React, { lazy } from "react";
+
+const Experience = lazy(() => import('../components/Experience'))
 
 function Index(): JSX.Element {
 
