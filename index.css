@@ -79,3 +79,23 @@
     --color-surface-800: rgb(38, 33, 29);
     --color-surface-900: rgb(31, 27, 24);
 }
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#content::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  #content {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+
+@layer components {
+    .centered{
+        @apply flex items-center justify-center flex-col
+    }
+
+}

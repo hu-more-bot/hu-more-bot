@@ -1,13 +1,13 @@
-import hexRgb from "hex-rgb"
+import hexRgb, { RgbaObject } from "hex-rgb"
 
 class Color{
-    rgb : string
+    rgb : RgbaObject
     hex : string
 
     constructor (_hex : string){
         this.hex = _hex
 
-        this.rgb = hexRgb(_hex, {format : "css"})
+        this.rgb = hexRgb(_hex, {format : "object"})
     }
 }
 

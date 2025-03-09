@@ -1,23 +1,58 @@
-import React, { lazy } from "react";
+import React, { lazy, useEffect, useState } from "react";
+import Topbar from "../components/Topbar";
+import ScrollDown from "../components/ScrollDown";
 
 const Experience = lazy(() => import('../components/Experience'))
 
 function Index(): JSX.Element {
+    const [offset, setOffset] = useState(0)
+
+
+    // window dimension
+    const [windowDimensions, setWindowDimensions] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+
+    const [isMobile, setIsMobile] = useState(windowDimensions.height > windowDimensions.width)
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowDimensions({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+
+            setIsMobile(windowDimensions.height > windowDimensions.width)
+
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    });
+
 
 
     return (
+        
         <div className="relative scheme-only-dark">
-            <div className="max-h-screen max-w-screen min-h-screen min-w-screen overflow-y-auto  absolute z-10 *:min-h-screen top-0">
-                <div className="flex place-content-center items-center">
-                    <div className="text-8xl bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-800 font-mono ">
+            <Topbar scrollOffset={offset} appear={150} isMobile={isMobile}/>
+            <div className="max-h-screen max-w-screen min-h-screen min-w-screen overflow-y-auto  absolute z-10  *:min-h-screen top-0" id="content" onScroll={(event) => {setOffset(event.currentTarget.scrollTop) }}>
+                <div className="flex place-content-center items-center relative">
+                    <div className="lg:text-9xl text-6xl bg-clip-text text-transparent select-none font-stretch-50% bg-gradient-to-r from-primary-400 to-primary-800 font-mono">
                         Hu-More-Bot
                     </div>
+                    <ScrollDown scrollOffset={offset} disappear={100}/>
                 </div>
-                <div className="bg-surface-800 text-primary-100 text-justify flex flex-col rounded-t-3xl items-center">
+                <div className="bg-surface-800/60 border-t border-surface-900 backdrop-blur-xl text-primary-100 text-justify flex flex-col rounded-t-3xl items-center">
                     <div className="font-mono underline underline-offset-2 text-4xl my-8">
                         About Us
                     </div>
-                    <div className="max-w-screen  lg:w-4xl p-4 text-sm lg:text-lg">
+                    <div className="max-w-screen  lg:w-4xl p-4 text-sm lg:text-lg ">
                     The Hu-More-Bot team was originally founded in 2019 under the name Robo quartet. <br />
                     We all love robotics and technology, that’s what brought us together as a team, although the team members have changed over the years. Our team has been accumulating success since the beginning, because in the year of its foundation, we won the MIRK 2019 OnStage league with our performance “The Bremen Town Musicians”. <br />
 
@@ -32,7 +67,7 @@ function Index(): JSX.Element {
                     </div>
                 </div>
             </div>
-        <Experience className=""/>
+        <Experience className="" offset={offset}/>
         </div>
     );
 }
