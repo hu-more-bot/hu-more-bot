@@ -1,4 +1,4 @@
-import { MeshReflectorMaterial } from "@react-three/drei";
+import { Edges, MeshReflectorMaterial } from "@react-three/drei";
 import colors from "../colors";
 import { Color } from "three";
 
@@ -7,11 +7,11 @@ export default function Floor(): JSX.Element {
     <mesh rotation={[Math.PI/-2, 0, 0]} position={[0, -2, -7.5]}>
       <circleGeometry args={[4, 40]} />
       <MeshReflectorMaterial
-    blur={[20, 20]} // Blur ground reflections (width, height), 0 skips blur
-    mixBlur={0} // How much blur mixes with surface roughness (default = 1)
+    blur={300} // Blur ground reflections (width, height), 0 skips blur
+    mixBlur={10} // How much blur mixes with surface roughness (default = 1)
     mixStrength={1.1} // Strength of the reflections
     mixContrast={1.6} // Contrast of the reflections
-    resolution={1024} // Off-buffer resolution, lower=faster, higher=better quality, slower
+    resolution={40} // Off-buffer resolution, lower=faster, higher=better quality, slower
     mirror={0.3} // Mirror environment, 0 = texture colors, 1 = pick up env colors
     depthScale={0} // Scale the depth factor (0 = no depth, default = 0)
     minDepthThreshold={0.8} // Lower edge for the depthTexture interpolation (default = 0)
@@ -20,6 +20,7 @@ export default function Floor(): JSX.Element {
     reflectorOffset={0.2} // Offsets the virtual camera that projects the reflection. Useful when the reflective surface is some distance from the object's origin (default = 0)
     color={new Color(colors.surface300.hex)}
   />
+  <Edges lineWidth={3} color={new Color(colors.surface50.hex)}/>
     </mesh>
   </>)
 }

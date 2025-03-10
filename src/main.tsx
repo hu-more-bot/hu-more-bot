@@ -11,6 +11,15 @@ const router = createHashRouter([{
   path: "/",
   element: (<Index/>),
   errorElement: (<div className="min-h-screen min-w-screen content-center text-center text-4xl">404</div>)
+},{
+  path: "history",
+  element: (<Index/>)
+},{
+  path: "about",
+  element: (<Index/>)
+},{
+  path: "sponsors",
+  element: (<Index/>)
 }])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

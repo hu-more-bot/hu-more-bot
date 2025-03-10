@@ -24,9 +24,11 @@ function Index(): JSX.Element {
                 height: window.innerHeight,
             });
 
-            setIsMobile(windowDimensions.height > windowDimensions.width)
+            setIsMobile(windowDimensions.height > windowDimensions.width || windowDimensions.width < 600 || windowDimensions.height < 600)
 
         };
+
+        
 
         window.addEventListener('resize', handleResize);
 
