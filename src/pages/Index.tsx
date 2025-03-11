@@ -41,8 +41,8 @@ function Index(): JSX.Element {
 
     // use effect for handling hash change
     useEffect(() => {
-        const handleHashChange = (hash: string) => {
-            if (!hash || hash === lastHash) return;
+        const handleHashChange = (hash: string, force : boolean) => {
+            if (!hash || (hash === lastHash && force == false)) return;
     
             lastHash = hash;
             const element = document.getElementById(hash);
@@ -56,7 +56,7 @@ function Index(): JSX.Element {
     
         const checkHash = () => {
             const hash = window.location.hash.substring(1);
-            handleHashChange(hash);
+            handleHashChange(hash, false);
         };
     
         // Intercept anchor tag clicks to prevent instant jump
@@ -64,7 +64,7 @@ function Index(): JSX.Element {
             const target = event.target as HTMLAnchorElement;
             if (target.tagName === "A" && target.hash) {
                 event.preventDefault(); // Stop default hash jump
-                handleHashChange(target.hash.substring(1)); // Manually smooth scroll
+                handleHashChange(target.hash.substring(1), true); // Manually smooth scroll
             }
         };
     
