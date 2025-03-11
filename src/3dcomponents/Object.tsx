@@ -1,21 +1,17 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import colors from "../colors";
-import { Color } from "three";
+import { Model } from "./Low-poly-f1-car";
 
 export default function Object():JSX.Element{
-          const cubeRef = useRef<THREE.Mesh>(null); // Move ref above useFrame
+          const objectRef = useRef<THREE.Group>(null); // Move ref above useFrame
         
           useFrame(() => {
-            if (cubeRef.current) {
+            if (objectRef.current) {
 
-              cubeRef.current.rotateY(0.01);
+              objectRef.current.rotation.y += 0.01;
             }
           });
     return (<>
-        <mesh position={[0, -0.5, -7.5]} ref={cubeRef}>
-            <boxGeometry args={[2, 2, 2]} />
-            <meshStandardMaterial color={new Color(colors.secondary500.hex)} />
-        </mesh>
+        <Model ref={objectRef}  position={[0, -2, -7.5]} rotation={[0,0,0]} scale={[0.5,0.5,0.5]}/>
     </>)
 }
