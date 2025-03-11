@@ -12,6 +12,6 @@ export default function Object():JSX.Element{
             }
           });
     return (<>
-        <Model ref={objectRef}  position={[0, -2, -7.5]} rotation={[0,0,0]} scale={[0.5,0.5,0.5]}/>
+        <Model ref={objectRef} castShadow  position={[0, -2, -7.5]} rotation={[0,0,0]} scale={[0.5,0.5,0.5]}/>
     </>)
 }

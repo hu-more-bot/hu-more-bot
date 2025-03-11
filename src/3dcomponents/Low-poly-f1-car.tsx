@@ -8,6 +8,7 @@ import * as THREE from 'three'
 import React, { forwardRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import colors from '../colors'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -29,11 +30,18 @@ type GLTFResult = GLTF & {
 export const Model = forwardRef<THREE.Group, JSX.IntrinsicElements['group']>((props, ref) => {
   const { nodes, materials } = useGLTF('/low-poly-f1-car-transformed.glb') as GLTFResult
 
+  materials.PaletteMaterial001.color = new THREE.Color(colors.primary300.hex)
+  materials.PaletteMaterial002.color = new THREE.Color(colors.secondary300.hex)
+  materials.PaletteMaterial003.color = new THREE.Color(colors.tertiary300.hex)
+  materials.PaletteMaterial004.color = new THREE.Color(colors.warning300.hex)
+  materials.PaletteMaterial005.color = new THREE.Color(colors.primary300.hex)
+
+
   return (
     <group ref={ref} {...props} dispose={null}>
       <mesh geometry={nodes.Cube.geometry} material={materials.PaletteMaterial001} position={[-1.843, 1.745, 0]} scale={[0.257, 0.027, 1.507]} />
       <group position={[5.697, 2.828, 0]} scale={[0.371, 0.018, 0.961]}>
-        <mesh geometry={nodes.Cube002_1.geometry} material={materials.PaletteMaterial002} />
+        <mesh geometry={nodes.Cube002_1.geometry} material={materials.PaletteMaterial002}/>
         <mesh geometry={nodes.Cube002_2.geometry} material={materials.PaletteMaterial003} />
       </group>
       <group position={[-1.221, 2.314, -0.037]} rotation={[0, Math.PI / 2, 0]} scale={[0.09, 0.09, 0.031]}>

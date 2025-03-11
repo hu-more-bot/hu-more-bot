@@ -19,7 +19,7 @@ export default function Experience({ className, offset }: classes): JSX.Element 
 
     className={className}
 
-    
+    shadows
   >
     <Background />
   </Canvas>)
