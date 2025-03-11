@@ -100,7 +100,9 @@
 
 }
 
-
+html {
+  scroll-behavior: smooth;
+}
 
 /* DRAWER CSS */
 

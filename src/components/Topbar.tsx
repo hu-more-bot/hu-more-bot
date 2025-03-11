@@ -57,7 +57,7 @@ export default function Topbar({ scrollOffset, appear, isMobile }: Topbar): JSX.
 
     const openDrawer = () => { setDrawerOpen(true) }
     const closeDrawer = () => { setDrawerOpen(false) }
-    return (<>
+    return (<div>
 
         <div style={{ backgroundColor: `rgba(${backgroundColor.rgb.red}, ${backgroundColor.rgb.green}, ${backgroundColor.rgb.blue}, ${Math.min(0.5, scrollOffset / appear)})`, borderColor: `rgba(${borderColor.rgb.red}, ${borderColor.rgb.green}, ${borderColor.rgb.blue}, ${Math.min(1, scrollOffset / appear)})` }} className="h-12 text-secondary-200 absolute w-screen *:flex-1/2 flex place-content-center items-center z-20 backdrop-blur-xl border-b-2 text-lg">
             <button className="ml-5" onClick={openDrawer}>
@@ -66,9 +66,13 @@ export default function Topbar({ scrollOffset, appear, isMobile }: Topbar): JSX.
             <div className="text-center font-mono font-stretch-50% font-light">
                 Hu-More-Bot
             </div>
+            <div className="flex-1/2"></div>
 
-            <Drawer open={drawerOpen} onClose={closeDrawer} direction="left" duration={80} size={"300px"}>
-                <div className="bg-tertiary-900/80 h-screen p-2 flex flex-col text-center relative z-50 border-r-2 border-secondary-900 backdrop-blur-lg">
+
+        </div>
+
+        <Drawer open={drawerOpen} onClose={closeDrawer} direction="left" duration={80} size={"300px"} className="backdrop-blur-lg">
+                <div className="bg-tertiary-900/80 h-screen p-2 flex flex-col text-center relative z-50 border-r-2 border-secondary-900 backdrop-blur-lg text- text-secondary-200">
 
                     <div className="flex-1/2 *:my-4 mx-13 text-xl">
                         <div className="">
@@ -90,7 +94,7 @@ export default function Topbar({ scrollOffset, appear, isMobile }: Topbar): JSX.
                         </div>
 
                     </div>
-                    <div className="flex   place-content-center border-t-2  items-center pb-10 pt-8 mx-10 ">
+                    <div className="flex   place-content-center border-t-2  items-center pb-16 pt-8 mx-10 ">
                         <a href="https://github.com/hu-more-bot" className="flex text-xl">
 
                             Github <FiGithub size={"25px"} className="ml-4" />
@@ -101,6 +105,5 @@ export default function Topbar({ scrollOffset, appear, isMobile }: Topbar): JSX.
                     </button>
                 </div>
             </Drawer>
-        </div>
-    </>)
+    </div>)
 }
