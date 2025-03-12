@@ -3,6 +3,7 @@ import Topbar from "../components/Topbar";
 import ScrollDown from "../components/ScrollDown";
 
 const Experience = lazy(() => import('../components/Experience'))
+const Background = lazy(()=> import("../3dcomponents/Background"))
 let lastHash = ""
 
 function Index(): JSX.Element {
@@ -135,7 +136,9 @@ function Index(): JSX.Element {
                     </div>
                 </div>
             </div>
-            <Experience className="" offset={offset} />
+            <Experience className="" offset={offset} >
+                <Background/>
+            </Experience>
         </div>
     );
 }
