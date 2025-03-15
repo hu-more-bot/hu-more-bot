@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 import Loading from './components/Loading.tsx'
 
 const Index = lazy(() => import('./pages/Index.tsx'))
+const PrevComp = lazy(()=> import("./pages/PrevComp.tsx"))
 
 const router = createHashRouter([{
   path: "/",
@@ -20,6 +21,16 @@ const router = createHashRouter([{
 },{
   path: "sponsors",
   element: (<Index/>)
+},{
+  path: "porto",
+  element : (<PrevComp/>)
+},{
+  path: "bordeaux",
+  element : (<PrevComp/>)
+
+},{
+  path: "eindhover",
+  element : (<PrevComp/>)
 }])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
