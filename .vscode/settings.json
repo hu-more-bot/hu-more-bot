@@ -1,0 +1,25 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true,
+        "**/.eslintrc.cjs": true,
+        "**/package-lock.json": true,
+        "**/package.json": true,
+        "**/README.md": true,
+        "**/.gitignore": true,
+        "**/tsconfig.json": true,
+        "**/tsconfig.tsbuildinfo": true,
+        "**/.triplex": true,
+        "**/.vscode": true,
+        "**/docs": true,
+        "**/tsconfig.node.json": true,
+        "**/vite.config.ts": true,
+        "**/vite-env.d.ts": true
+    },
+    "explorerExclude.backup": {}
+}

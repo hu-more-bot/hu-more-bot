@@ -1,6 +1,6 @@
 import hexRgb, { RgbaObject } from "hex-rgb"
 
-class Color{
+export class Color{
     rgb : RgbaObject
     hex : string
 

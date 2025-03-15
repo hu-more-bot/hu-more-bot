@@ -4,6 +4,9 @@ import "../index.css"
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import { Suspense } from 'react'
 import Loading from './components/Loading.tsx'
+import eindhoven from './pages/prevcomps/eindhoven.tsx'
+import porto from './pages/prevcomps/porto.tsx'
+import bordeaux from './pages/prevcomps/bordeaux.tsx'
 
 const Index = lazy(() => import('./pages/Index.tsx'))
 const PrevComp = lazy(()=> import("./pages/PrevComp.tsx"))
@@ -23,14 +26,14 @@ const router = createHashRouter([{
   element: (<Index/>)
 },{
   path: "porto",
-  element : (<PrevComp/>)
+  element : (<PrevComp title="Porto 2022" content={porto}/>)
 },{
   path: "bordeaux",
-  element : (<PrevComp/>)
+  element : (<PrevComp title="Bordeaux 2023" content={bordeaux}/>)
 
 },{
-  path: "eindhover",
-  element : (<PrevComp/>)
+  path: "eindhoven",
+  element : (<PrevComp title="Eindhoven 2024" content={eindhoven}/>)
 }])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
