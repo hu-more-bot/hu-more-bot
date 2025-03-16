@@ -45,71 +45,37 @@ export default function PrevComp({ title, content }: PrevComp): JSX.Element {
 
     // handling scrolling to top when refreshing
     useEffect(() => {
-        const handleHashChange = (hash: string, force: boolean) => {
-            if ((!hash && hash != "") || (hash === lastHash && force == false)) return;
+        const scrollTop = ()=>{
+            const element = document.getElementById("index")
 
-            let element
-            if (hash == "") {
-                element = document.getElementById("index");
+            if(element){
+                element.scrollIntoView({behavior:"smooth"})
             }
-            else {
-                element = document.getElementById(hash);
-            }
+        }
 
-            lastHash = hash;
+        window.addEventListener("hashchange", scrollTop);
 
-
-            if (element) {
-                history.pushState(null, "", `#${hash}`); // Update URL without triggering default jump
-                element.scrollIntoView({ behavior: "smooth", block: "start" });
-
-            }
-        };
-
-        const checkHash = () => {
-
-
-            const hash = window.location.hash.substring(1);
-            handleHashChange(hash, false);
-        };
-
-        // Intercept anchor tag clicks to prevent instant jump
-        const interceptAnchorClicks = (event: MouseEvent) => {
-            const target = event.target as HTMLAnchorElement;
-
-            if (target.tagName === "A" && (target.hash || target.hash == "") && target.id=="topbar") {
-                event.preventDefault(); // Stop default hash jump
-                handleHashChange(target.hash.substring(1), true); // Manually smooth scroll
-                return
-            }
-
-        };
-
-        window.addEventListener("hashchange", checkHash);
-        document.addEventListener("click", interceptAnchorClicks); // Catch clicks
-
-        checkHash(); // Run on first load if there's a hash
+        scrollTop(); // Run on first load if there's a hash
 
         return () => {
-            window.removeEventListener("hashchange", checkHash);
-            document.removeEventListener("click", interceptAnchorClicks);
+            window.removeEventListener("hashchange", scrollTop);
         };
     }, [])
 
 
-    return (<div className="relative scheme-only-dark ">
+    return (<div className="relative scheme-only-dark">
         <TopbarPreviousComps scrollOffset={offset} isMobile={isMobile} appear={150} />
-        <div className="max-h-screen max-w-screen min-h-screen min-w-screen overflow-y-auto  absolute z-10 bg-surface-900 top-0" id="content" onScroll={(event) => { setOffset(event.currentTarget.scrollTop) }}>
+        <div className="max-h-screen max-w-screen min-h-screen min-w-screen overflow-y-auto  absolute z-10 bg-surface-900 top-0 text-secondary-200" id="content" onScroll={(event) => { setOffset(event.currentTarget.scrollTop) }}>
 
-            <div className="flex place-content-center items-center relative min-h-screen" id="index">
+            <div className="flex place-content-center items-center relative min-h-screen border-b-2 border-secondary-500" id="index">
                 <div className="md:text-9xl text-5xl bg-clip-text text-transparent select-none font-stretch-50% bg-gradient-to-r from-secondary-200 to-secondary-700 font-mono ">
                     {title}
                 </div>
                 <ScrollDown scrollOffset={offset} disappear={100} color={colors.secondary500} />
             </div>
-            <div className="border-t-2 border-secondary-500 text-secondary-200 min-h-screen">
+            
                 {content({ isMobile: isMobile, scrollOffset: offset, windowDimension: windowDimensions })}
-            </div>
+            
         </div>
     </div>)
 }

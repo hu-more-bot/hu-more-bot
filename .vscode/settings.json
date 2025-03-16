@@ -19,7 +19,10 @@
         "**/docs": true,
         "**/tsconfig.node.json": true,
         "**/vite.config.ts": true,
-        "**/vite-env.d.ts": true
+        "**/vite-env.d.ts": true,
+        "**/CNAME": true,
+        "**/404.html": true,
+        "**/favicon.ico": true
     },
     "explorerExclude.backup": {}
 }

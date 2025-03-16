@@ -5,7 +5,7 @@ Files: ./public/low-poly-f1-car.glb [897.22KB] > /home/utelagazas/Code/Repos/hu-
 */
 
 import * as THREE from 'three'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import colors from '../colors'
@@ -28,7 +28,7 @@ type GLTFResult = GLTF & {
 }
 
 export const Model = forwardRef<THREE.Group, JSX.IntrinsicElements['group']>((props, ref) => {
-  const { nodes, materials } = useGLTF('/low-poly-f1-car-transformed.glb') as GLTFResult
+  const { nodes, materials } = useGLTF('/3dFiles/low-poly-f1-car-transformed.glb') as GLTFResult
 
   materials.PaletteMaterial001.color = new THREE.Color(colors.primary300.hex)
   materials.PaletteMaterial002.color = new THREE.Color(colors.secondary300.hex)
@@ -52,4 +52,4 @@ export const Model = forwardRef<THREE.Group, JSX.IntrinsicElements['group']>((pr
   )
 })
 
-useGLTF.preload('/low-poly-f1-car-transformed.glb')
+useGLTF.preload('/3dFiles/low-poly-f1-car-transformed.glb')
