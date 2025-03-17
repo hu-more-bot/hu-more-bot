@@ -94,6 +94,19 @@
   /* Firefox */
 }
 
+#images::-webkit-scrollbar {
+  height: 8px; /* Adjust the thickness */
+}
+
+#images::-webkit-scrollbar-thumb {
+  background: var(--color-secondary-900); /* Subtle color */
+  border-radius: 10px;
+}
+
+#images::-webkit-scrollbar-track {
+  background: transparent; /* No background */
+}
+
 
 @layer components {
   .centered {
