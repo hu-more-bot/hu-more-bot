@@ -11,16 +11,18 @@ export default function Draggable({ children }: Draggable): JSX.Element {
             camera={{
                 position: [0, 1, -1.5],
                 rotation: [0, 0, 0],
-                fov: 75,
+                fov: 85,
             }}
-            style={{ width: "100vw", height: "85vh", maxWidth: "100vw", maxHeight: "100vh"}}
+            style={{ width: "500px", height: "85vh", maxWidth: "100vw", maxHeight: "100vh"}}
 
+            className="hover:cursor-grab active:cursor-grabbing"
 
+            id="draggable"
         >
             <directionalLight position={[0, 1.5, 0]}
                 rotation={[Math.PI / -6, 0, 0]} intensity={2} />
             <ambientLight position={[0, 0, 0]} intensity={1} />
-            <OrbitControls enableZoom={false} target={[0,0,0]}/>
+            <OrbitControls enableZoom={false} target={[0,0,0]} enablePan={false} autoRotate/>
             {children}
         </Canvas>
 

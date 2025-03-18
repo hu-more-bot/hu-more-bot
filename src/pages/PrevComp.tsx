@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import ScrollDown from "../components/ScrollDown"
 import colors from "../colors";
 import TopbarPreviousComps from "../components/TopbarPreviousComps";
+import Draggable from "src/3dcomponents/Draggable";
 
 interface PrevComp {
     title: string
-    content: (props: DeviceInformation) => JSX.Element
+    images: { src: string, description: string }[]
+    model: JSX.Element
 }
 
-export default function PrevComp({ title, content }: PrevComp): JSX.Element {
+export default function PrevComp({ title, images, model }: PrevComp): JSX.Element {
 
     const [offset, setOffset] = useState(0)
 
@@ -45,11 +47,11 @@ export default function PrevComp({ title, content }: PrevComp): JSX.Element {
 
     // handling scrolling to top when refreshing
     useEffect(() => {
-        const scrollTop = ()=>{
+        const scrollTop = () => {
             const element = document.getElementById("index")
 
-            if(element){
-                element.scrollIntoView({behavior:"smooth"})
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" })
             }
         }
 
@@ -73,9 +75,37 @@ export default function PrevComp({ title, content }: PrevComp): JSX.Element {
                 </div>
                 <ScrollDown scrollOffset={offset} disappear={100} color={colors.secondary500} />
             </div>
-            
-                {content({ isMobile: isMobile, scrollOffset: offset, windowDimension: windowDimensions })}
-            
+
+            <div className=" flex flex-col border-b-2 pb-6 border-secondary-400">
+                <div className="flex-1/6 min-h-10 content-center text-center text-4xl my-6 text-secondary-400">
+                    Photos
+                </div>
+                <div className="flex-5/6 flex place-content-center items-center">
+                    <div className=" items-center flex overflow-x-scroll snap-x py-4 px-4 *:snap-center touch-pan-x mx-3 lg:mx-10 *:w-[85vw] *:px-2 *:flex *:flex-col *:items-center **:first:max-h-[60vh] **:first:max-w-[80vw] **:rounded-xl **:first:object-contain **:first:flex **:first:place-content-center text-secondary-800 border-2 border-tertiary-900 rounded-2xl bg-surface-800 *:*:first:border-2 *:*:first:border-tertiary-300 *:*:first:mb-2 text-center" id="images">
+                        {images.map((image, index) => (
+                            <div key={index} className="flex flex-col items-center">
+                                <img src={image.src} alt={image.description}/>
+                                {image.description}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className="max-h-screen text-center text-3xl -mt-4">
+                <div className="translate-y-10">
+                    2023s project
+                    <div className="text-xl text-secondary-800">
+                        Ladybug of Szeged
+                    </div>
+                </div>
+
+                <div className="h-full flex place-content-center ">
+                    <Draggable>
+                        {model}
+                    </Draggable>
+                </div>
+            </div>
+
         </div>
     </div>)
 }

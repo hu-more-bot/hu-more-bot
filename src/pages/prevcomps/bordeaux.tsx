@@ -1,7 +1,7 @@
 import Draggable from "../../3dcomponents/Draggable";
 import { Model } from "../../3dcomponents/Ladybug";
 
-export default function bordeaux(props: DeviceInformation): JSX.Element {
+export default function bordeaux(_props: DeviceInformation): JSX.Element {
 
 
 
@@ -36,19 +36,19 @@ export default function bordeaux(props: DeviceInformation): JSX.Element {
                     </div>
                 </div>
             </div>
-            <div className="max-h-screen text-center text-3xl">
-                2023s project
-                <div className="text-xl text-secondary-800">
-                    Ladybug of Szeged
+            <div className="max-h-screen text-center text-3xl -mt-4">
+                <div className="translate-y-10">
+                    2023s project
+                    <div className="text-xl text-secondary-800">
+                        Ladybug of Szeged
+                    </div>
                 </div>
-                <div className="h-full">
+
+                <div className="h-full flex place-content-center ">
                     <Draggable>
-                        <Model/>
+                        <Model />
                     </Draggable>
                 </div>
-            </div>
-            <div className="hidden">
-                {props.isMobile}
             </div>
         </>)
 }

@@ -29,7 +29,7 @@ const router = createHashRouter([{
   element : (<PrevComp title="Porto 2022" content={porto}/>)
 },{
   path: "bordeaux",
-  element : (<PrevComp title="Bordeaux 2023" content={bordeaux}/>)
+  element : (<PrevComp title="Bordeaux 2023" images={[{description:"asd", src: "/pictures/eindhovensuperteam.jpg"}]} model={}/>)
 
 },{
   path: "eindhoven",
