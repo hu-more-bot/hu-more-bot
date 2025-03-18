@@ -13,7 +13,7 @@ export default function Draggable({ children }: Draggable): JSX.Element {
                 rotation: [0, 0, 0],
                 fov: 85,
             }}
-            style={{ width: "500px", height: "85vh", maxWidth: "100vw", maxHeight: "100vh"}}
+            style={{ width: "700px", height: "85vh", maxWidth: "100vw", maxHeight: "100vh"}}
 
             className="hover:cursor-grab active:cursor-grabbing"
 

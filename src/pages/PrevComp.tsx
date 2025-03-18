@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ScrollDown from "../components/ScrollDown"
 import colors from "../colors";
 import TopbarPreviousComps from "../components/TopbarPreviousComps";
-import Draggable from "src/3dcomponents/Draggable";
+import Draggable from "../3dcomponents/Draggable";
 
 export default function PrevComp({ prevComp }: { prevComp: PrevCompIdentifiers }): JSX.Element {
 
@@ -65,7 +65,7 @@ export default function PrevComp({ prevComp }: { prevComp: PrevCompIdentifiers }
 
             <div className="flex place-content-center items-center relative min-h-screen border-b-2 border-secondary-500" id="index">
                 <div className="md:text-9xl text-5xl bg-clip-text text-transparent select-none font-stretch-50% bg-gradient-to-r from-secondary-200 to-secondary-700 font-mono ">
-                    {prevComp.name}{prevComp.year}
+                    {prevComp.name} {prevComp.year}
                 </div>
                 <ScrollDown scrollOffset={offset} disappear={100} color={colors.secondary500} />
             </div>
@@ -88,7 +88,7 @@ export default function PrevComp({ prevComp }: { prevComp: PrevCompIdentifiers }
             {prevComp.model &&
                 <div className="max-h-screen text-center text-3xl -mt-4">
                     <div className="translate-y-10">
-                        2023s project
+                        {prevComp.year}'s project
                         {prevComp.robotName && 
                         <div className="text-xl text-secondary-800">
                             Ladybug of Szeged
