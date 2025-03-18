@@ -6,7 +6,6 @@ import { Suspense } from 'react'
 import Loading from './components/Loading.tsx'
 import  { EindHovenIdentifier } from './pages/prevcomps/eindhoven.tsx'
 import  { PortoIdentifier } from './pages/prevcomps/porto.tsx'
-import { LadybugModel } from './3dcomponents/Ladybug.tsx'
 import { BordeauxIdentifier } from './pages/prevcomps/bordeaux';
 
 const Index = lazy(() => import('./pages/Index.tsx'))
