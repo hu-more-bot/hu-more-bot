@@ -17,7 +17,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export function Model(props: JSX.IntrinsicElements['group']) {
+export function LadybugModel(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/3dFiles/ladybug-transformed.glb') as GLTFResult
   const [clicked, setClicked] = useState(false)
   const [willExplode, setWillExplode] = useState(false)

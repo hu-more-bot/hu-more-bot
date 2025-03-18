@@ -7,6 +7,8 @@ import Loading from './components/Loading.tsx'
 import eindhoven from './pages/prevcomps/eindhoven.tsx'
 import porto from './pages/prevcomps/porto.tsx'
 import bordeaux from './pages/prevcomps/bordeaux.tsx'
+import { LadybugModel } from './3dcomponents/Ladybug.tsx'
+import { BordeauxIdentifier } from './pages/prevcomps/bordeaux';
 
 const Index = lazy(() => import('./pages/Index.tsx'))
 const PrevComp = lazy(()=> import("./pages/PrevComp.tsx"))
@@ -26,14 +28,14 @@ const router = createHashRouter([{
   element: (<Index/>)
 },{
   path: "porto",
-  element : (<PrevComp title="Porto 2022" content={porto}/>)
+  element : (<PrevComp name="Porto" images={[{description:"Porto", src: "/pictures/eindhovensuperteam.jpg"}]} model={<LadybugModel/>}/>)
 },{
   path: "bordeaux",
-  element : (<PrevComp title="Bordeaux 2023" images={[{description:"asd", src: "/pictures/eindhovensuperteam.jpg"}]} model={}/>)
+  element : (<PrevComp BordeauxIdentifier/>)
 
 },{
   path: "eindhoven",
-  element : (<PrevComp title="Eindhoven 2024" content={eindhoven}/>)
+  element : (<PrevComp title="Eindhoven 2024" images={[{description:"Eindhoven", src: "/pictures/eindhovensuperteam.jpg"}]} model={<LadybugModel/>}/>)
 }])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

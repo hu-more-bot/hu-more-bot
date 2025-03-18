@@ -4,13 +4,7 @@ import colors from "../colors";
 import TopbarPreviousComps from "../components/TopbarPreviousComps";
 import Draggable from "src/3dcomponents/Draggable";
 
-interface PrevComp {
-    title: string
-    images: { src: string, description: string }[]
-    model: JSX.Element
-}
-
-export default function PrevComp({ title, images, model }: PrevComp): JSX.Element {
+export default function PrevComp({ prevComp }: { prevComp: PrevCompIdentifiers }): JSX.Element {
 
     const [offset, setOffset] = useState(0)
 
@@ -71,7 +65,7 @@ export default function PrevComp({ title, images, model }: PrevComp): JSX.Elemen
 
             <div className="flex place-content-center items-center relative min-h-screen border-b-2 border-secondary-500" id="index">
                 <div className="md:text-9xl text-5xl bg-clip-text text-transparent select-none font-stretch-50% bg-gradient-to-r from-secondary-200 to-secondary-700 font-mono ">
-                    {title}
+                    {prevComp.name}{prevComp.year}
                 </div>
                 <ScrollDown scrollOffset={offset} disappear={100} color={colors.secondary500} />
             </div>
@@ -82,29 +76,35 @@ export default function PrevComp({ title, images, model }: PrevComp): JSX.Elemen
                 </div>
                 <div className="flex-5/6 flex place-content-center items-center">
                     <div className=" items-center flex overflow-x-scroll snap-x py-4 px-4 *:snap-center touch-pan-x mx-3 lg:mx-10 *:w-[85vw] *:px-2 *:flex *:flex-col *:items-center **:first:max-h-[60vh] **:first:max-w-[80vw] **:rounded-xl **:first:object-contain **:first:flex **:first:place-content-center text-secondary-800 border-2 border-tertiary-900 rounded-2xl bg-surface-800 *:*:first:border-2 *:*:first:border-tertiary-300 *:*:first:mb-2 text-center" id="images">
-                        {images.map((image, index) => (
+                        {prevComp.images?.map((image, index) => (
                             <div key={index} className="flex flex-col items-center">
-                                <img src={image.src} alt={image.description}/>
+                                <img src={image.src} alt={image.description} />
                                 {image.description}
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
-            <div className="max-h-screen text-center text-3xl -mt-4">
-                <div className="translate-y-10">
-                    2023s project
-                    <div className="text-xl text-secondary-800">
-                        Ladybug of Szeged
+            {prevComp.model &&
+                <div className="max-h-screen text-center text-3xl -mt-4">
+                    <div className="translate-y-10">
+                        2023s project
+                        {prevComp.robotName && 
+                        <div className="text-xl text-secondary-800">
+                            Ladybug of Szeged
+                        </div>
+                        }
                     </div>
-                </div>
 
-                <div className="h-full flex place-content-center ">
-                    <Draggable>
-                        {model}
-                    </Draggable>
+
+                    <div className="h-full flex place-content-center ">
+                        <Draggable>
+                            {prevComp.model}
+                        </Draggable>
+                    </div>
+
                 </div>
-            </div>
+            }
 
         </div>
     </div>)

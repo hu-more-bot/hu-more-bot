@@ -27,7 +27,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export const Model = forwardRef<THREE.Group, JSX.IntrinsicElements['group']>((props, ref) => {
+export const CarModel = forwardRef<THREE.Group, JSX.IntrinsicElements['group']>((props, ref) => {
   const { nodes, materials } = useGLTF('/3dFiles/low-poly-f1-car-transformed.glb') as GLTFResult
 
   materials.PaletteMaterial001.color = new THREE.Color(colors.primary300.hex)
