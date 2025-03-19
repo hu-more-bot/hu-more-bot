@@ -72,7 +72,7 @@ export default function Topbar({ scrollOffset, appear, isMobile }: Topbar): JSX.
             </div>
             <a className="flex-1/2" href="/#" id="topbar">
             <PiPlaceholderLight id="indexButton" size={25}/>
-
+            
             </a>
 
 

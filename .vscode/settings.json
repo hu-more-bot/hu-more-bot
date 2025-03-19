@@ -5,7 +5,7 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true,
+        "**/Thumbs.db": false,
         "**/node_modules": true,
         "**/.eslintrc.cjs": true,
         "**/package-lock.json": true,
@@ -21,8 +21,8 @@
         "**/vite.config.ts": true,
         "**/vite-env.d.ts": true,
         "**/CNAME": true,
-        "**/404.html": true,
-        "**/favicon.ico": true
+        "**/404.html": false,
+        "**/favicon.ico": false
     },
     "explorerExclude.backup": {}
 }
