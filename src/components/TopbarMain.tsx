@@ -4,9 +4,9 @@ import colors from "../colors"
 import { FiGithub } from "react-icons/fi";
 import { MdMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
-import { PiPlaceholderLight } from "react-icons/pi";
 
 import Drawer from 'react-modern-drawer'
+import SVG, { svgs } from "./Svg";
 
 
 interface Topbar {
@@ -28,7 +28,7 @@ export default function Topbar({ scrollOffset, appear, isMobile }: Topbar): JSX.
             <div style={{ backgroundColor: `rgba(${backgroundColor.rgb.red}, ${backgroundColor.rgb.green}, ${backgroundColor.rgb.blue}, ${Math.min(0.5, scrollOffset / appear)})`, borderColor: `rgba(${borderColor.rgb.red}, ${borderColor.rgb.green}, ${borderColor.rgb.blue}, ${Math.min(1, scrollOffset / appear)})` }} className="h-12 text-secondary-200 absolute w-screen  flex place-content-center items-center z-20 backdrop-blur-xl border-b-2 *:text-center ">
 
                 <a href="/#" className="w-25 border-r-2 flex place-content-center" id="topbar">
-                    <PiPlaceholderLight id="indexButton" size={25}/>
+                    <SVG svgType={svgs.monoLogo} id="indexButton" size={25}/>
                 </a>
                 <div className="flex-1/2">
                     <a href="/#sponsors" id="topbar">
@@ -71,7 +71,7 @@ export default function Topbar({ scrollOffset, appear, isMobile }: Topbar): JSX.
                 Hu-More-Bot
             </div>
             <a className="flex-1/2" href="/#" id="topbar">
-            <PiPlaceholderLight id="indexButton" size={25}/>
+            <SVG svgType={svgs.monoLogo} id="indexButton" size={25}/>
             
             </a>
 

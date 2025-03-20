@@ -4,10 +4,10 @@ import colors from "../colors"
 import { FiGithub } from "react-icons/fi";
 import { MdMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
-import { PiPlaceholderLight } from "react-icons/pi";
 import { IoIosArrowBack } from "react-icons/io";
 
 import Drawer from 'react-modern-drawer'
+import SVG, { svgs } from "./Svg";
 
 
 interface Topbar {
@@ -72,7 +72,7 @@ export default function TopbarPreviousComps({ scrollOffset, appear, isMobile }: 
                 Hu-More-Bot
             </div>
             <a className="flex-1/2" href="/#" id="topbar">
-                <PiPlaceholderLight id="indexButton" size={25} />
+                <SVG svgType={svgs.monoLogo} id="indexButton" size={25} />
 
             </a>
 

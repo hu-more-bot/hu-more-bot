@@ -10,4 +10,5 @@ interface PrevCompIdentifiers{
     model?: JSX.Element
     robotName? :string
     year: number
+    clickableModel? : boolean
 }

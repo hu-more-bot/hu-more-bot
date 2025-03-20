@@ -5,5 +5,6 @@ export const BordeauxIdentifier : PrevCompIdentifiers= {
     year: 2023,
     images: [{src: "/pictures/eindhovensuperteam.jpg", description: "Our team with the Japanese and Slovakian teams"},{src: "/pictures/eindhovensuperteam.jpg", description: "Our team with the Japanese and Slovakian teams"}],
     model: (<LadybugModel/>),
-    robotName: "Ladybug of Szeged"
+    robotName: "Ladybug of Szeged",
+    clickableModel : true,
 }

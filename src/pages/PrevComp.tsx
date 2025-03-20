@@ -98,7 +98,7 @@ export default function PrevComp({ prevComp }: { prevComp: PrevCompIdentifiers }
 
 
                     <div className="h-full flex place-content-center ">
-                        <Draggable>
+                        <Draggable clickable={prevComp.clickableModel}>
                             {prevComp.model}
                         </Draggable>
                     </div>
