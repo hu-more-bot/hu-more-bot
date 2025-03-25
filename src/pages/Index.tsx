@@ -75,7 +75,7 @@ function Index(): JSX.Element {
         const interceptAnchorClicks = (event: MouseEvent) => {
             const target = event.target as HTMLAnchorElement;
 
-            if (target.tagName === "A" && (target.hash || target.hash == "") && target.id=="topbar") {
+            if (target.tagName === "A" && (target.hash || target.hash == "") && target.id == "topbar") {
                 event.preventDefault(); // Stop default hash jump
                 handleHashChange(target.hash.substring(1), true); // Manually smooth scroll
                 return
@@ -110,7 +110,7 @@ function Index(): JSX.Element {
                     <div className="md:text-9xl text-5xl bg-clip-text text-transparent select-none font-stretch-50% bg-gradient-to-r from-primary-300 to-primary-700 font-mono -translate-y-44 ">
                         Hu-More-Bot
                     </div>
-                    <ScrollDown scrollOffset={offset} disappear={100} color={colors.warning500}/>
+                    <ScrollDown scrollOffset={offset} disappear={100} color={colors.warning500} />
                 </div>
                 <div className="*:border-t *:border-surface-900 *:backdrop-blur-xl *:text-primary-100 *:text-justify *:pt-12 *:items-center *:flex *:flex-col *:rounded-t-3xl">
                     {/* ABOUT US SECTION */}
@@ -147,12 +147,31 @@ function Index(): JSX.Element {
                     {/* FOR SPONSORS SECTION */}
                     <div className="bg-surface-900/80 " id="sponsors">
                         <div className="font-mono underline underline-offset-2 text-4xl my-8">
-                            For Sponsors
+                            Perks of being a sponsor include:
                         </div>
                         <div className="max-w-screen  md:w-4xl p-4 text-sm md:text-lg ">
-                            T-Shirt
-                            On car sticker
-                            Our previous sponsors include
+                            <div>
+                                <div>
+                                    A spot on our T-Shirt
+                                </div>
+                                <div>
+                                    Every Sponsor will get a spot on our T-Shirts that we will wear almost every day to the European and the International rounds of the competitions.
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    A spot in our On Stage performance
+                                </div>
+                                <div>
+                                    We will get a stickers that have the logos of our sponsors on them, and because we are making race cars this year we will put them on the cars like on the real F1 cars!
+                                </div>
+                            </div>
+
+                            <div>
+                                Our previous sponsors include:
+                                
+                            </div>
+
                         </div>
                     </div>
                 </div>
